@@ -1,7 +1,7 @@
 /*!
- * FireShell Gruntfile
- * http://getfireshell.com
- * @author Todd Motto
+ * EBM Gruntfile
+ * http://soygus.com
+ * @author MadeByGus (GIT: netpoe)
  */
 
 'use strict';
@@ -44,8 +44,14 @@ module.exports = function (grunt) {
       css: [
         '<%= project.src %>/scss/style.scss'
       ],
+      ebm: [
+        '<%= project.src %>/scss/ebm.scss'
+      ],
       js: [
-        '<%= project.src %>/js/*.js'
+        '<%= project.src %>/js/lib/*.js'
+      ],
+      coffee: [
+        '<%= project.src %>/coffee/*.coffee'
       ]
     },
 
@@ -92,9 +98,22 @@ module.exports = function (grunt) {
      */
     clean: {
       dist: [
-        '<%= project.assets %>/css/style.unprefixed.css',
-        '<%= project.assets %>/css/style.prefixed.css'
+        '<%= project.assets %>/css/style.pkgd.min.css'
       ]
+    },
+
+    /**
+     * Compile COFFEESCRIPT files
+     * https://github.com/gruntjs/grunt-contrib-coffee
+     * Compiles all COFFEESCRIPT files
+     */
+
+    coffee: {
+      dev: {
+        files: {
+          '<%= project.src %>/js/lib/coffeeCompile.js': '<%= project.coffee %>'
+        }
+      }
     },
 
     /**
@@ -102,33 +121,33 @@ module.exports = function (grunt) {
      * https://github.com/gruntjs/grunt-contrib-jshint
      * Manage the options inside .jshintrc file
      */
-    jshint: {
-      files: [
-        'src/js/*.js',
-        'Gruntfile.js'
-      ],
-      options: {
-        jshintrc: '.jshintrc'
-      }
-    },
+    // jshint: {
+    //   files: [
+    //     'src/js/{,*/}*/{,*/}*.js',
+    //     'Gruntfile.js'
+    //   ],
+    //   options: {
+    //     jshintrc: '.jshintrc'
+    //   }
+    // },
 
     /**
      * Concatenate JavaScript files
      * https://github.com/gruntjs/grunt-contrib-concat
      * Imports all .js files and appends project banner
      */
-    concat: {
-      dev: {
-        files: {
-          '<%= project.assets %>/js/scripts.min.js': '<%= project.js %>'
-        }
-      },
-      options: {
-        stripBanners: true,
-        nonull: true,
-        banner: '<%= tag.banner %>'
-      }
-    },
+    // concat: {
+    //   dev: {
+    //     files: {
+    //       '<%= project.src %>/js/scripts.min.js': '<%= project.js %>'
+    //     }
+    //   },
+    //   options: {
+    //     stripBanners: true,
+    //     nonull: true,
+    //     banner: '<%= tag.banner %>'
+    //   }
+    // },
 
     /**
      * Uglify (minify) JavaScript files
@@ -141,7 +160,15 @@ module.exports = function (grunt) {
       },
       dist: {
         files: {
-          '<%= project.assets %>/js/scripts.min.js': '<%= project.js %>'
+          // '<%= project.assets %>/js/scripts.min.js': '<%= project.js %>', 
+          '<%= project.assets %>/js/scripts.min.js': [
+            '<%= project.src %>/js/lib/TweenMax.min.js',
+            '<%= project.src %>/js/lib/ScrollToPlugin.min.js',
+            '<%= project.src %>/js/lib/jquery.scrollmagic.min.js',
+            '<%= project.src %>/js/lib/imagesloaded.pkgd.min.js',
+            '<%= project.src %>/js/lib/isotope.pkgd.min.js',
+            '<%= project.src %>/js/lib/coffeeCompile.js'
+          ]
         }
       }
     },
@@ -152,13 +179,22 @@ module.exports = function (grunt) {
      * Compiles all Sass/SCSS files and appends project banner
      */
     sass: {
+      ebm: {
+        options: {
+          style: 'expanded',
+          banner: '<%= tag.banner %>'
+        },
+        files: {
+          '<%= project.assets %>/css/ebm.css': '<%= project.ebm %>'
+        }
+      },
       dev: {
         options: {
           style: 'expanded',
           banner: '<%= tag.banner %>'
         },
         files: {
-          '<%= project.assets %>/css/style.unprefixed.css': '<%= project.css %>'
+          '<%= project.assets %>/css/style.css': '<%= project.css %>'
         }
       },
       dist: {
@@ -166,10 +202,11 @@ module.exports = function (grunt) {
           style: 'expanded'
         },
         files: {
-          '<%= project.assets %>/css/style.unprefixed.css': '<%= project.css %>'
+          '<%= project.assets %>/css/style.pkgd.min.css': '<%= project.src %>/scss/style.pkgd.scss'
+          // '<%= project.assets %>/css/style.unprefixed.css': '<%= project.css %>'
         }
       }
-    },
+    },    
 
     /**
      * Autoprefixer
@@ -205,25 +242,24 @@ module.exports = function (grunt) {
      * https://github.com/gruntjs/grunt-contrib-cssmin
      */
     cssmin: {
-      dev: {
-        options: {
-          banner: '<%= tag.banner %>'
-        },
-        files: {
-          '<%= project.assets %>/css/style.min.css': [
-            '<%= project.src %>/components/normalize-css/normalize.css',
-            '<%= project.assets %>/css/style.unprefixed.css'
-          ]
-        }
-      },
+      // dev: {
+      //   options: {
+      //     banner: '<%= tag.banner %>'
+      //   },
+      //   files: {
+      //     '<%= project.assets %>/css/style.min.css': [
+      //       '<%= project.src %>/components/normalize-css/normalize.css',
+      //       '<%= project.assets %>/css/style.unprefixed.css'
+      //     ]
+      //   }
+      // },
       dist: {
         options: {
           banner: '<%= tag.banner %>'
         },
         files: {
           '<%= project.assets %>/css/style.min.css': [
-            '<%= project.src %>/components/normalize-css/normalize.css',
-            '<%= project.assets %>/css/style.prefixed.css'
+            '<%= project.assets %>/css/style.pkgd.min.css'
           ]
         }
       }
@@ -259,13 +295,21 @@ module.exports = function (grunt) {
      * Livereload the browser once complete
      */
     watch: {
-      concat: {
-        files: '<%= project.src %>/js/{,*/}*.js',
-        tasks: ['concat:dev', 'jshint']
+      // concat: {
+      //   files: '<%= project.src %>/js/{,*/}*.js',
+      //   tasks: ['concat:dev', 'jshint']
+      // },
+      uglify: {
+        files: '<%= project.src %>/js/lib/*.js',
+        tasks: ['uglify']
       },
       sass: {
-        files: '<%= project.src %>/scss/{,*/}*.{scss,sass}',
-        tasks: ['sass:dev', 'cssmin:dev', 'autoprefixer:dev']
+        files: '<%= project.src %>/scss/{,*/}*/{,*/}*.{scss,sass}',
+        tasks: ['sass:dev', 'autoprefixer:dev']
+      },
+      coffee: {
+        files: '<%= project.src %>/coffee/*.coffee',
+        tasks: 'coffee:dev'
       },
       livereload: {
         options: {
@@ -286,13 +330,16 @@ module.exports = function (grunt) {
    * Run `grunt` on the command line
    */
   grunt.registerTask('default', [
+    'coffee:dev',
+    'sass:ebm',
     'sass:dev',
     'bower:dev',
-    'autoprefixer:dev',
-    'cssmin:dev',
-    'jshint',
-    'concat:dev',
+    // 'autoprefixer:dev',
+    // 'cssmin:dev',
+    // 'jshint',
+    // 'concat:dev',
     'connect:livereload',
+    'uglify',
     'open',
     'watch'
   ]);
@@ -305,10 +352,10 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'sass:dist',
     'bower:dist',
-    'autoprefixer:dist',
+    // 'autoprefixer:dist',
     'cssmin:dist',
     'clean:dist',
-    'jshint',
+    // 'jshint',
     'uglify'
   ]);
 
