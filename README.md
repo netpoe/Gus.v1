@@ -2,30 +2,42 @@
 
 ### Description
 
-EBM or Easy Box Model is a set of automated and prebuilt Sass - Coffee - HTML5 - Grunt tools that __significantly increase your productivity__
+_EBM_ or Easy Box Model is a set of automated and prebuilt Sass - Coffee - HTML5 - Grunt tools that __significantly increase your productivity__
+
+The _EBM_ allows you to decide which `_*.scss`, `*.coffee`, `*.js` files you want to compile to your final product plus: 
+
+- Completely integrated with the latest Bootstrap 3
+- Get complete control of your background, text and border colors from a single `_variables.scss` file
+- Get complete control of each side of your html direct or children tags without touching any CSS
+- Run-once-and-for-all lightweight Sass set into a single `styles.pkgd.min.css` file without losing sight of your compiled CSS
+- Complete complex layouts with the use of the __Flexbox predefined classes__ with prefixes and fallbacks
+- Take advantage of a modular Sass file structure for scalable websites and applications
 
 ### Installing EBM
 
-		git clone https://github.com/netpoe/EasyBoxModel.git
+	git clone https://github.com/netpoe/EasyBoxModel.git
 
 ### Out-of-the-box tools
 
 - Twitter Bootstrap ^3.3.0
 - Bourbon Sass gem
-- CSS Animate
+- CSS Animate (converted to Sass partials)
 - VideoBG template with VideoJS
 - Flexbox ready to use classes (with fallbacks)
-- The actual EasyBoxModel Sass mixins, check out the full [list of available tools](https://github.com/netpoe/EasyBoxModel/tree/master/src/scss/EBM)
+- The actual EasyBoxModel Sass mixins, check out the full [list of available shortcuts, loops and mixins](https://github.com/netpoe/EasyBoxModel/tree/master/src/scss/EBM)
+- Everything is prefixed
+- Tested on modern Chrome, Firefox, IE9+, Opera
+- MORE AT THE BOTTOM
 
 ### Usage
 
 __Development__
 
-		grunt
+	grunt
 
 __Production__
 
-		grunt build
+	grunt build
 
 ### Examples
 
@@ -36,6 +48,44 @@ Apply a margin top of 21px and a padding left of 35px to a `div`
 		<div class="mt-21 pl-35"></div>
 
 	</body>
+
+Apply a margin-bottom of 14rem and a padding left of 42rem to each list-item without touching your CSS
+
+	<ul class="mb-ch-21 pl-ch-42">
+		<li></li>
+		<li></li>
+		<li></li>
+		...
+	</ul>
+
+Make all paragraphs inside a div have a gray-light color and a responsive .lead font-size
+
+	<div class="p-ch-primary lead-ch">
+		<p></p>
+		<p></p>
+		<p></p>
+		...
+	</div>
+
+Build a mobile header
+
+	<header class="flex-space-between minh-70 border-bottom-gray-lighter normalize-text ph-14">
+	  <div class="left flex-middle">
+	    <nav>
+	      <a href="#">Link</a>
+	      <a href="#">Link 2</a>
+	    </nav>
+	  </div>
+	  <div class="center flex-middle text-center">
+	    <h3>Title</h3>
+	  </div>
+	  <div class="right flex-middle">
+	    <nav>
+	      <a href="#">Link 3</a>
+	      <a href="#">Link 4</a>
+	    </nav>
+	  </div>
+	</header>
 
 For this example, the Sass $times variable is set to 7, so it works for values 7, 14, 21, 28, 35, 42, 49, 56, 63, 70. 
 
@@ -103,8 +153,7 @@ ___
 Additionally, I found the following helpers useful on my projects
 
 - Background color helper classes including `.bg-white` that match the Bootstrap 3 color reference
-- Minimum heights `mh-$times` and `mhp-$times`
-- A `.grid-block-\*` class for adding padding top and bottom only on any element
+- Minimum heights `minh-$times` and `minhp-$times`
 - A `_variables.scss` sass partial for using EBM without bootstrap 3
 - `.grid-list` helper classes for creating grids based on floating list items (more on this later)
 
@@ -115,5 +164,5 @@ Additionally, I found the following helpers useful on my projects
 - EBM class abbr and property values go from (1 * $times) to (10 * $times), make sure to study your algebra
 - EBM works for IE8+ with a `px` unit fallback in each class
 - EBM works with _rem_ CSS units for modern browsers
-- EBM _em-base_ is set to 16px 
+- EBM _em-base_ is set to 14px 
 - EBM makes use of the _px to rems_ and the _strip-units_ Sass functions from [bourbon.io](http://bourbon.io)
