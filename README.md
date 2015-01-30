@@ -21,6 +21,7 @@ The _EBM_ allows you to decide which `_*.scss`, `*.coffee`, `*.js` files you wan
 
 - Twitter Bootstrap ^3.3.0
 - Bourbon Sass gem
+- Responsive text and headings
 - CSS Animate (converted to Sass partials)
 - VideoBG template with VideoJS
 - Flexbox ready to use classes (with fallbacks)
@@ -166,3 +167,7 @@ Additionally, I found the following helpers useful on my projects
 - EBM works with _rem_ CSS units for modern browsers
 - EBM _em-base_ is set to 14px 
 - EBM makes use of the _px to rems_ and the _strip-units_ Sass functions from [bourbon.io](http://bourbon.io)
+
+### ROADMAP
+
+The EBM can only keep growing, [I'm](http://twitter.com/@MadeByGus) working on a set of pre-built templates for complex dashboards and mobile applications. 
