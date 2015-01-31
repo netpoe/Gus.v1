@@ -1,4 +1,29 @@
 (function() {
+  $(document).ready(function() {
+    $('.site-menu .top').click(function(e) {
+      e.preventDefault();
+      $('.site-wrapper').toggleClass('menu-on');
+    });
+  });
+
+}).call(this);
+
+(function() {
+  $(document).ready(function() {
+    var $container;
+    $container = $('.isotope-grid');
+    $container.children('li').addClass('isotope-item');
+    $container.imagesLoaded(function() {
+      $container.isotope({
+        itemSelector: '.isotope-item',
+        layoutMode: 'fitRows'
+      });
+    });
+  });
+
+}).call(this);
+
+(function() {
   'use-strict';
   $(document).ready(function() {
     $('.disable-anchors a').click(function(e) {
