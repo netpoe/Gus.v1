@@ -269,14 +269,14 @@ module.exports = function (grunt) {
      * Build bower components
      * https://github.com/yatskevich/grunt-bower-task
      */
-    bower: {
-      dev: {
-        dest: '<%= project.assets %>/components/'
-      },
-      dist: {
-        dest: '<%= project.assets %>/components/'
-      }
-    },
+    // bower: {
+    //   dev: {
+    //     dest: '<%= project.assets %>/components/'
+    //   },
+    //   dist: {
+    //     dest: '<%= project.assets %>/components/'
+    //   }
+    // },
 
     /**
      * Opens the web server in the browser
@@ -333,7 +333,7 @@ module.exports = function (grunt) {
     'coffee:dev',
     'sass:ebm',
     'sass:dev',
-    'bower:dev',
+    // 'bower:dev',
     // 'autoprefixer:dev',
     // 'cssmin:dev',
     // 'jshint',
