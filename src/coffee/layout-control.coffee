@@ -6,9 +6,14 @@ $(document).ready ->
 		return
 
 	$('[data-href]').click((e)->
-		console.log($(this).data('href'))
+		locationArr = window.location.pathname.split('/')
+		lastPath = locationArr[locationArr.length - 1]
+		mainPath = locationArr[locationArr.length - 2]
+		pathObj = {}
+		pathObj[mainPath] = lastPath
+		window.history.pushState(pathObj, '', lastPath)
 		document.location.replace($(this).data('href'))
 		return
 		)
-
+	
 	return # END ON READY

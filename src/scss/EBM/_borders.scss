@@ -27,15 +27,15 @@ $border-sides-list:
 $border-width: 1px;
 $border-style: solid;
 
-@for $z from 1 to length($border-sides-list) + 1 {
+@for $z from 1 through length($border-sides-list) {
 	@for $i from 1 to length($brand-colors-sufix-list) {
 		.border-#{nth($border-sides-list, $z)}-#{nth($brand-colors-sufix-list, $i)} {
 			border-#{nth($border-sides-list, $z)}: $border-width $border-style #{nth($brand-colors-list, $i)};
 		}
 	}
 }
-@for $z from 1 to length($border-sides-list) + 1 {
-	@for $i from 1 to length($grayscale-sufix-list) {
+@for $z from 1 through length($border-sides-list) {
+	@for $i from 1 through length($grayscale-sufix-list) {
 		.border-#{nth($border-sides-list, $z)}-#{nth($grayscale-sufix-list, $i)} {
 			border-#{nth($border-sides-list, $z)}: $border-width $border-style #{nth($grayscale-list, $i)};
 		}
@@ -43,8 +43,8 @@ $border-style: solid;
 }
 
 // Border sizes
-@for $z from 2 to length($sizes-list) + 1 {
-	@for $i from 1 to length($border-sides-list) + 1 {
+@for $z from 2 through length($sizes-list) {
+	@for $i from 1 through length($border-sides-list) {
 		.border-#{nth($border-sides-list, $i)}-#{nth($sizes-list, $z)} {
 			border-#{nth($border-sides-list, $i)}-width: ($border-width + $z) !important;
 		}

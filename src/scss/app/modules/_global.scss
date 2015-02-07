@@ -1,3 +1,18 @@
+// Prevent layout breakage on unsupporting browsers
+html {
+	&.no-js {
+		.flex-space-between {
+			@include clearfix;
+			.left {
+				float: left;
+			}
+			.right {
+				float: right;
+			}
+		}
+	}
+} 
+
 html,
 body {
 	min-height: 100%;
@@ -18,11 +33,13 @@ $site-menu-width-control: 101px;
 $menu-list-icons-width: 35px;
 	// Header
 $header-height-control: 70px;
+	// Mobile header
+$mobile-navbar-height: 56px;
 
 .site-wrapper,
 .site-content {
 	min-height: 100%;
-	// height: 100%;
+	height: 100%;
 	position: relative;
 }
 

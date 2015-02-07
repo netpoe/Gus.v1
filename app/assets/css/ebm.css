@@ -16256,6 +16256,10 @@ hr.hr-custom-white:before {
   border-top: 1px solid #eeeeee;
 }
 
+.border-top-white {
+  border-top: 1px solid #fff;
+}
+
 .border-right-gray-darker {
   border-right: 1px solid #222222;
 }
@@ -16274,6 +16278,10 @@ hr.hr-custom-white:before {
 
 .border-right-gray-lighter {
   border-right: 1px solid #eeeeee;
+}
+
+.border-right-white {
+  border-right: 1px solid #fff;
 }
 
 .border-bottom-gray-darker {
@@ -16296,6 +16304,10 @@ hr.hr-custom-white:before {
   border-bottom: 1px solid #eeeeee;
 }
 
+.border-bottom-white {
+  border-bottom: 1px solid #fff;
+}
+
 .border-left-gray-darker {
   border-left: 1px solid #222222;
 }
@@ -16314,6 +16326,10 @@ hr.hr-custom-white:before {
 
 .border-left-gray-lighter {
   border-left: 1px solid #eeeeee;
+}
+
+.border-left-white {
+  border-left: 1px solid #fff;
 }
 
 .border-top-sm {
