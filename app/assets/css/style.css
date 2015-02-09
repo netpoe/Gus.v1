@@ -3193,6 +3193,98 @@ input[type="button"].btn-block {
 }
 
 /*========================================
+=                TRANSFORMICONS         =
+========================================*/
+.tcon {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  transition: 0.3s;
+  user-select: none;
+  width: 40px;
+  background: transparent;
+}
+.tcon > * {
+  display: block;
+}
+.tcon:focus {
+  outline: 1px dotted #1E1C3D;
+}
+
+.tcon-visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+.tcon-visuallyhidden:active, .tcon-visuallyhidden:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+.tcon-menu__lines {
+  display: inline-block;
+  height: 5.71429px;
+  width: 40px;
+  border-radius: 2.85714px;
+  transition: 0.3s;
+  background: black;
+  position: relative;
+}
+.tcon-menu__lines::before, .tcon-menu__lines::after {
+  display: inline-block;
+  height: 5.71429px;
+  width: 40px;
+  border-radius: 2.85714px;
+  transition: 0.3s;
+  background: black;
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  transform-origin: 2.85714px center;
+}
+.tcon-menu__lines::before {
+  top: 10px;
+}
+.tcon-menu__lines::after {
+  top: -10px;
+}
+.tcon-transform .tcon-menu__lines {
+  transform: scale3d(0.8, 0.8, 0.8);
+}
+
+.tcon-menu--xcross {
+  width: auto;
+}
+.tcon-menu--xcross.tcon-transform .tcon-menu__lines {
+  background: transparent;
+}
+.tcon-menu--xcross.tcon-transform .tcon-menu__lines::before, .tcon-menu--xcross.tcon-transform .tcon-menu__lines::after {
+  transform-origin: 50% 50%;
+  top: 0;
+  width: 40px;
+}
+.tcon-menu--xcross.tcon-transform .tcon-menu__lines::before {
+  transform: rotate3d(0, 0, 1, 45deg);
+}
+.tcon-menu--xcross.tcon-transform .tcon-menu__lines::after {
+  transform: rotate3d(0, 0, 1, -45deg);
+}
+
+/*========================================
 =             APP CUSTOM                 =
 ========================================*/
 /*========================================
