@@ -24,3 +24,7 @@ $font-family-alt:         "alt-name", $font-family-sans-serif;
 // CUSTOM CONTAINER VARIABLE
 $container-xs: 								((480px + $grid-gutter-width)) !default;
 $container-fluid: 						 $grid-gutter-width / 2; 
+
+.container-fluid {
+	width: 100%;
+}

@@ -35,6 +35,8 @@ $menu-list-icons-width: 35px;
 $header-height-control: 70px;
 	// Mobile header
 $mobile-navbar-height: 56px;
+	// Hero Unit and Videocover
+$video-bg-height: 491px;
 
 .site-wrapper,
 .site-content {
@@ -43,12 +45,74 @@ $mobile-navbar-height: 56px;
 	position: relative;
 }
 
+// HERO UNIT
+.hero-unit {
+	position: relative;
+	height: $video-bg-height;
+	@include bg-img-control;
+	&.video-bg {
+		overflow: hidden;
+		height: $video-bg-height;
+	}
+	.overlay {
+		@include position(absolute, 0 0 0 0);
+		height: $video-bg-height;
+	}
+}
+
+// CLICKABLE DIV
+[data-href]{
+	cursor: pointer;
+}
+
+
+
 // SIZE CONTROL
 	// I assume that the 'md' size is the default size
 	// Control the sizes of elements by using $size-control variables at the top of this file
 .size {
-	&.xs {}
-	&.sm {}
-	&.lg {}
-	&.xl {}
+	&.xs {
+		&.hero-unit {
+			height: $video-bg-height - 280;
+			&.video-bg {
+				height: $video-bg-height - 280;
+			}
+			.overlay {
+				height: $video-bg-height - 280;
+			}
+		}
+	}
+	&.sm {
+		&.hero-unit {
+			height: $video-bg-height - 140;
+			&.video-bg {
+				height: $video-bg-height - 140;
+			}
+			.overlay {
+				height: $video-bg-height - 140;
+			}
+		}
+	}
+	&.lg {
+		&.hero-unit {
+			height: $video-bg-height + 140;
+			&.video-bg {
+				height: $video-bg-height + 140;
+			}
+			.overlay {
+				height: $video-bg-height + 140;
+			}
+		}
+	}
+	&.xl {
+		&.hero-unit {
+			height: $video-bg-height + 210;
+			&.video-bg {
+				height: $video-bg-height + 210;
+			}
+			.overlay {
+				height: $video-bg-height + 210;
+			}
+		}
+	}
 }
