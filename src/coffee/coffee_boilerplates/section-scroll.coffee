@@ -53,7 +53,7 @@ $(document).ready ->
 		scrollDownAnchor = '<a class="scroll-down scroll-down-sq size lg"' +
 											'href="#' + idRef + '"' +
 											'rel="nofollow">' +
-											'<i class="icon-arrows-down"></i>' +
+											'down' +
 											'</a>'
 		if(idRef != undefined)
 			$(item).append(scrollDownAnchor)
