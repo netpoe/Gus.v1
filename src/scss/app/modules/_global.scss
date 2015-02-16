@@ -37,6 +37,9 @@ $header-height-control: 70px;
 $mobile-navbar-height: 56px;
 	// Hero Unit and Videocover
 $video-bg-height: 491px;
+	// User cards
+$user-card-height: 42px;
+$user-card-width: 70px;
 
 .site-wrapper,
 .site-content {
@@ -63,56 +66,4 @@ $video-bg-height: 491px;
 // CLICKABLE DIV
 [data-href]{
 	cursor: pointer;
-}
-
-
-
-// SIZE CONTROL
-	// I assume that the 'md' size is the default size
-	// Control the sizes of elements by using $size-control variables at the top of this file
-.size {
-	&.xs {
-		&.hero-unit {
-			height: $video-bg-height - 280;
-			&.video-bg {
-				height: $video-bg-height - 280;
-			}
-			.overlay {
-				height: $video-bg-height - 280;
-			}
-		}
-	}
-	&.sm {
-		&.hero-unit {
-			height: $video-bg-height - 140;
-			&.video-bg {
-				height: $video-bg-height - 140;
-			}
-			.overlay {
-				height: $video-bg-height - 140;
-			}
-		}
-	}
-	&.lg {
-		&.hero-unit {
-			height: $video-bg-height + 140;
-			&.video-bg {
-				height: $video-bg-height + 140;
-			}
-			.overlay {
-				height: $video-bg-height + 140;
-			}
-		}
-	}
-	&.xl {
-		&.hero-unit {
-			height: $video-bg-height + 210;
-			&.video-bg {
-				height: $video-bg-height + 210;
-			}
-			.overlay {
-				height: $video-bg-height + 210;
-			}
-		}
-	}
 }

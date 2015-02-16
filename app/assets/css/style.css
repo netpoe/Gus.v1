@@ -846,7 +846,7 @@ address {
 }
 @media (min-width: 1200px) {
   .container {
-    width: 1168px;
+    width: 968px;
   }
 }
 
@@ -3662,43 +3662,6 @@ body::-webkit-scrollbar {
   cursor: pointer;
 }
 
-.size.xs.hero-unit {
-  height: 211px;
-}
-.size.xs.hero-unit.video-bg {
-  height: 211px;
-}
-.size.xs.hero-unit .overlay {
-  height: 211px;
-}
-.size.sm.hero-unit {
-  height: 351px;
-}
-.size.sm.hero-unit.video-bg {
-  height: 351px;
-}
-.size.sm.hero-unit .overlay {
-  height: 351px;
-}
-.size.lg.hero-unit {
-  height: 631px;
-}
-.size.lg.hero-unit.video-bg {
-  height: 631px;
-}
-.size.lg.hero-unit .overlay {
-  height: 631px;
-}
-.size.xl.hero-unit {
-  height: 701px;
-}
-.size.xl.hero-unit.video-bg {
-  height: 701px;
-}
-.size.xl.hero-unit .overlay {
-  height: 701px;
-}
-
 /* PROJECT ESPECIFIC FONTS */
 html {
   font-size: 14px;
@@ -4913,6 +4876,86 @@ input[type="submit"].btn.btn-white.btn-outline:hover {
   color: #fff;
 }
 
+/* USER CARD */
+.user-card {
+  position: relative;
+  margin-bottom: 7px;
+  width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-direction: row;
+}
+.user-card:before, .user-card:after {
+  content: " ";
+  display: table;
+}
+.user-card:after {
+  clear: both;
+}
+.user-card h1, .user-card h2, .user-card h3, .user-card h4, .user-card h5, .user-card h6,
+.user-card .h1, .user-card .h2, .user-card .h3, .user-card .h4, .user-card .h5, .user-card .h6,
+.user-card p, .user-card .p, .user-card span, .user-card em, .user-card strong, .user-card label, .user-card i, .user-card ul, .user-card ol, .user-card li {
+  margin: 0;
+}
+.user-card .user-pic {
+  width: 70px;
+}
+.user-card .user-pic img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+.user-card .user-info {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  min-height: 84px;
+  padding-left: 14px;
+}
+.user-card .user-info > a, .user-card .user-info > span, .user-card .user-info > div,
+.user-card .user-info > li, .user-card .user-info > p,
+.user-card .user-info > h1, .user-card .user-info > h2, .user-card .user-info > h3, .user-card .user-info > h4, .user-card .user-info > h5, .user-card .user-info > h6,
+.user-card .user-info > ul, .user-card .user-info > ol, .user-card .user-info > section, .user-card .user-info > small {
+  display: block;
+}
+.user-card .user-info span {
+  color: #555555;
+}
+.user-card.user-card-round .user-pic img {
+  border-radius: 50%;
+}
+
 header,
 .header {
   display: -webkit-box;
@@ -5003,6 +5046,68 @@ header .right,
 header .center,
 .header .center {
   text-align: center;
+}
+
+.size.xs.hero-unit {
+  height: 211px;
+}
+.size.xs.hero-unit.video-bg {
+  height: 211px;
+}
+.size.xs.hero-unit .overlay {
+  height: 211px;
+}
+.size.xs.user-card .user-pic {
+  width: 28px;
+}
+.size.xs.user-card .user-info {
+  min-height: 28px;
+}
+.size.sm.hero-unit {
+  height: 351px;
+}
+.size.sm.hero-unit.video-bg {
+  height: 351px;
+}
+.size.sm.hero-unit .overlay {
+  height: 351px;
+}
+.size.sm.user-card .user-pic {
+  width: 35px;
+}
+.size.sm.user-card .user-info {
+  min-height: 35px;
+}
+.size.lg.hero-unit {
+  height: 631px;
+}
+.size.lg.hero-unit.video-bg {
+  height: 631px;
+}
+.size.lg.hero-unit .overlay {
+  height: 631px;
+}
+.size.lg.user-card .user-pic {
+  width: 180px;
+}
+.size.lg.user-card .user-info {
+  width: 75%;
+  min-height: 0px;
+}
+.size.xl.hero-unit {
+  height: 701px;
+}
+.size.xl.hero-unit.video-bg {
+  height: 701px;
+}
+.size.xl.hero-unit .overlay {
+  height: 701px;
+}
+.size.xl.user-card .user-pic {
+  width: 63px;
+}
+.size.xl.user-card .user-info {
+  min-height: 63px;
 }
 
 /*# sourceMappingURL=style.css.map */
