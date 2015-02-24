@@ -5,6 +5,7 @@ $(document).ready ->
 		e.preventDefault()
 		return
 
+	# HREFerence for anchor blocks 
 	$('[data-href]').click((e)->
 		locationArr = window.location.pathname.split('/')
 		lastPath = locationArr[locationArr.length - 1]
@@ -17,6 +18,6 @@ $(document).ready ->
 		)
 	
 	# TRANSFORM ICONS INITIALIZE
-	transformicons.add('.tcon')
+	# transformicons.add('.tcon')
 
 	return # END ON READY

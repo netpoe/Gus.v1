@@ -2,9 +2,13 @@
   "name": "easyboxmodel",
   "version": "1.0.0",
   "dependencies": {
-    "modernizr": "~2.6.2",
-    "jquery": "^2.1.3",
-    "respond": "^1.4.2",
-    "html5shiv": "^3.7.2"
+    "modernizr": "lastest",
+    "jquery": "lastest",
+    "respond": "lastest",
+    "html5shiv": "lastest",
+    "flickity": "latest",
+    "imagesloaded": "latest",
+    "isotope": "latest",
+    "ScrollMagic": "latest"
   }
 }
