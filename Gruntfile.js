@@ -293,6 +293,76 @@ module.exports = function (grunt) {
     },
 
     /**
+     * Responsive images
+     * http://www.andismith.com/grunt-responsive-images/
+     * https://github.com/andismith/grunt-responsive-images/
+     */
+
+    responsive_images: {
+      dev: {
+        options: {
+          sizes: [
+            {
+              width: 480
+            },{
+              width: 720
+            },
+            {
+              width: 960
+            },
+            {
+              upscale: true,
+              width: 1140
+            }
+          ]
+        },
+        files: [{
+          expand: true,
+          src: ['img/**/**.{jpg,gif,png}'],
+          cwd: '<%= project.src %>/',
+          dest: '<%= project.app %>/assets/'
+        }]
+      }
+    },
+
+    /**
+     * Responsive images extender
+     * https://github.com/smaxtastic/grunt-responsive-images-extender
+     */
+
+    responsive_images_extender: {
+      dev: {
+        options: {
+          srcset: [
+            {
+              suffix: '-480',
+              value: '480w'
+            },
+            {
+              suffix: '-720',
+              value: '720w'
+            },
+            {
+              suffix: '-940',
+              value: '940w'
+            },
+            {
+              suffix: '-1140',
+              value: '1140w'
+            }
+          ],
+          ignore: ['.ignore-srcset']
+        },
+        files: [{
+          expand: true,
+          src: ['*.{html,htm,php}'],
+          cwd: '<%= project.src %>/',
+          dest: '<%= project.app %>/'
+        }]        
+      }
+    },
+
+    /**
      * Opens the web server in the browser
      * https://github.com/jsoverson/grunt-open
      */
@@ -325,6 +395,14 @@ module.exports = function (grunt) {
         files: '<%= project.src %>/coffee/*.coffee',
         tasks: 'coffee:dev'
       },
+      responsive_images: {
+        files: '<%= project.src %>/img/**.{jpg,gif,png}',
+        tasks: 'responsive_images:dev'
+      },
+      responsive_images_extender: {
+        files: '<%= project.src %>/*.{html,htm,php}',
+        tasks: 'responsive_images_extender:dev'
+      },
       livereload: {
         options: {
           livereload: LIVERELOAD_PORT
@@ -352,6 +430,8 @@ module.exports = function (grunt) {
     // 'cssmin:dev',
     // 'jshint',
     // 'concat:dev',
+    'responsive_images:dev',
+    'responsive_images_extender:dev',
     'connect:livereload',
     'uglify',
     'open',
