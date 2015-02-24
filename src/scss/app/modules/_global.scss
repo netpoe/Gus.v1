@@ -1,18 +1,3 @@
-// Prevent layout breakage on unsupporting browsers
-html {
-	&.no-js {
-		.flex-space-between {
-			@include clearfix;
-			.left {
-				float: left;
-			}
-			.right {
-				float: right;
-			}
-		}
-	}
-} 
-
 html,
 body {
 	min-height: 100%;
