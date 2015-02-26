@@ -3,34 +3,34 @@
 ========================================*/
 @import 
   // GLOBAL STYLES DEFINITION
+  "elements/fonts-custom",
+  "elements/text-responsive",
+  "elements/type-custom",
   "modules/global";
 
 // APP Includes
 @import 
 
-  // TYPE
-  "elements/fonts-custom",
-  "elements/text-responsive",
-  "elements/type-custom",
-  "elements/icons",
-
   // BUTTONS & LINKS
   "elements/buttons-custom",
-
+  
   // BANNERS
-  // "elements/banners-custom",
+  "elements/banners-custom",
 
   // FORMS
   // "elements/forms-custom",
   // "elements/forms-multiuser",
 
   // USER CARD
-  "elements/user-card";
+  // "elements/user-card",
 
   // NAVS
 
   // PANELS
-  // "elements/panels-custom";
+  // "elements/panels-custom",
+
+  // ICONS
+  "elements/icons";
 
 // APP Modules
 @import 
@@ -41,7 +41,8 @@
   // "modules/videocover",
   // "modules/dashboard-wrapper",
   // "modules/mobile-menu",
-  // "modules/section-scroll",
+  "modules/section-scroll",
+  "modules/style-guide",
   "modules/ie-control",
   "modules/footer";
 

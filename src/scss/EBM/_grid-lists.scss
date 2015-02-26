@@ -27,7 +27,7 @@ $grid-list-item-height: 350px;
 	}
 	@for $i from 1 through $grid-columns {
 		@for $k from 1 through length($breakpoints-sufix-list) {
-	    @media #{nth($media-control-list, $k)} {
+	    @media #{nth($media-only-list, $k)} {
 				&.grid-list-#{$i}-#{nth($breakpoints-sufix-list, $k)} {
 					.grid-list-item,
 					> li {

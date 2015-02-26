@@ -9,6 +9,7 @@
     "flickity": "latest",
     "imagesloaded": "latest",
     "isotope": "latest",
+    "gsap": "latest",
     "ScrollMagic": "latest"
   }
 }

@@ -17,7 +17,7 @@ $(document).ready ->
 		str = str.replace(/[ó]/g,'o')
 		return str.replace(/[^a-z0-9]/gi,'')
 
-	$sectionScrollController = new ScrollMagic()
+	$sectionScrollController = new ScrollMagic.Controller()
 
 	scrollDownRef = []
 	$.each($sectionScrollContent, (index, item)->
@@ -34,7 +34,7 @@ $(document).ready ->
 								'class="animated bounceInRight ad-' + (index * 2) + 
 								' scroll-ref-' + index + ' atm-scroll-item">' + sectionData + '</a></li>'
 		$sectionScrollList.append(sectionList)
-		$sectionScrollScene = new ScrollScene({
+		$sectionScrollScene = new ScrollMagic.Scene({
 			triggerHook: 'onLeave'
 			triggerElement: triggerRef
 			duration: $(item).height()
@@ -60,7 +60,7 @@ $(document).ready ->
 		return
 		)
 
-	$applyScene = new ScrollScene({
+	$applyScene = new ScrollMagic.Scene({
 		triggerHook: 'onEnter'
 		triggerElement: '.section-scroll-3'
 		})

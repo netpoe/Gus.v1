@@ -156,18 +156,20 @@ module.exports = function (grunt) {
      */
     uglify: {
       options: {
-        banner: '<%= tag.banner %>'
+        banner: '<%= tag.banner %>',
+        beautify: true
       },
       dist: {
         files: {
           // '<%= project.assets %>/js/scripts.min.js': '<%= project.js %>', 
           '<%= project.assets %>/js/scripts.min.js': [
             // '<%= project.src %>/js/lib/TweenMax.min.js',
-            // '<%= project.src %>/js/lib/ScrollToPlugin.min.js',
-            // '<%= project.src %>/js/lib/jquery.scrollmagic.min.js',
+            // '<%= project.src %>/js/lib/ScrollToPlugin.js',
+            // '<%= project.src %>/js/lib/ScrollMagic.js',
+            // '<%= project.src %>/js/lib/jquery.scrollmagic.debug.js',
             // '<%= project.src %>/js/lib/imagesloaded.pkgd.min.js',
             // '<%= project.src %>/js/lib/isotope.pkgd.min.js',
-            // '<%= project.src %>/js/lib/flickity.pkgd.min.js',
+            // '<%= project.src %>/js/lib/lickity.pkgd.min.js',
             // '<%= project.src %>/js/lib/transformicons.js',
             '<%= project.src %>/js/lib/coffeeCompile.js'
           ]
@@ -183,8 +185,7 @@ module.exports = function (grunt) {
     sass: {
       ebm: {
         options: {
-          style: 'expanded',
-          banner: '<%= tag.banner %>'
+          style: 'expanded'
         },
         files: {
           '<%= project.assets %>/css/ebm.css': '<%= project.ebm %>'
@@ -192,8 +193,7 @@ module.exports = function (grunt) {
       },
       dev: {
         options: {
-          style: 'expanded',
-          banner: '<%= tag.banner %>'
+          style: 'expanded'
         },
         files: {
           '<%= project.assets %>/css/style.css': '<%= project.css %>'
@@ -389,7 +389,7 @@ module.exports = function (grunt) {
       },
       sass: {
         files: '<%= project.src %>/scss/{,*/}*/{,*/}*.{scss,sass}',
-        tasks: ['sass:dev', 'autoprefixer:dev']
+        tasks: ['sass:dev']
       },
       coffee: {
         files: '<%= project.src %>/coffee/*.coffee',
@@ -430,7 +430,7 @@ module.exports = function (grunt) {
     // 'cssmin:dev',
     // 'jshint',
     // 'concat:dev',
-    'responsive_images:dev',
+    // 'responsive_images:dev',
     'responsive_images_extender:dev',
     'connect:livereload',
     'uglify',
