@@ -26,6 +26,9 @@ node_modules
 src/components
 lib
 
+## Images
+app/assets/img/**
+
 ## Sass
 .sass-cache
 
