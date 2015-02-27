@@ -12,14 +12,15 @@
 	#{$global-sufix}banner-pic,
 	.banner-pic {
 		@include bg-img-control;
-		min-height: $banner-height;
+		height: $banner-height;
+		overflow: hidden;
 		@media #{$sm-up} {
 			padding: 0;
 		}
-		// img {
-		// 	width: 100%;
-		// 	height: auto;
-		// }
+		img {
+			width: 100%;
+			height: auto;
+		}
 	}
 	.banner-label {
 		@include position(absolute, -14px null null $container-fluid);
@@ -45,6 +46,20 @@
 		.banner-label {
 			@include position(absolute, null null 0 $container-fluid); 
 			top: inherit;
+		}
+	}
+	&.half-height {
+		.banner-pic {
+			height: $banner-height / 2;
+		}
+		.banner-content {
+			min-height: $banner-height / 2;
+		}
+	}
+	&.flex-none {
+		.banner-pic,
+		.banner-content {
+			display: block !important;
 		}
 	}
 }
