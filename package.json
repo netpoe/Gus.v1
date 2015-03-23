@@ -25,10 +25,12 @@
     "grunt-contrib-sass": "latest",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
-    "grunt-responsive-images": "latest",
-    "grunt-responsive-images-extender": "latest",
+    "grunt-responsive-images": "latest", // Generate multiple image versions with GraphicsMagick
+    "grunt-responsive-images-extender": "latest", // Parse html img tags to generate srcset attributes
     "grunt-open": "latest",
-    "matchdep": "latest"
+    "matchdep": "latest",    
+    "pgwbrowser": "latest", // Best jQuery browser detection plugin i've found
+    "logdown": "latest" // CSS style console.log messages
   },
   "scripts": {
     "postinstall": "node_modules/.bin/bower install"
