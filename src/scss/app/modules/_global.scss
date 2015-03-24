@@ -1,38 +1,25 @@
+// SIZE CONTROL VARS
+$size-control-placeholder: 530px;
+$banner-height: 350px; // Banners
+$site-menu-width-control: 101px; // Site menu
+$menu-list-icons-width: 35px;
+$header-height-control: 70px; // Header
+$mobile-navbar-height: 56px; // Mobile header
+$video-bg-height: 490px; // Hero Unit and Videocover
+$user-card-height: 42px; // User cards
+$user-card-width: 70px;
+
 html,
 body {
-	min-height: 100%;
-	height: 100%;
-	background-color: $body-bg;
-	// overflow-x: hidden;
+	background-color: $body-bg;	
 	&::-webkit-scrollbar { 
     display: none; 
 	}
 }
 
-// SIZE CONTROL VARS
-$size-control-placeholder: 530px;
-	// Banners
-$banner-height: 350px;
-	// Site menu
-$site-menu-width-control: 101px;
-$menu-list-icons-width: 35px;
-	// Header
-$header-height-control: 70px;
-	// Mobile header
-$mobile-navbar-height: 56px;
-	// Hero Unit and Videocover
-$video-bg-height: 491px;
-	// User cards
-$user-card-height: 42px;
-$user-card-width: 70px;
-
 .site-wrapper,
 .site-content {
-	min-height: 100%;
 	position: relative;
-}
-.site-content {
-	height: 100%;
 }
 
 // HERO UNIT
