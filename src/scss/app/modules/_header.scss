@@ -4,11 +4,18 @@ header.header {
 	// z-index: 1000;
 	// -webkit-backface-visibility: hidden; 
 	// -webkit-transform: translateZ(0);
-	@include flex-space-between;
 	@include normalize-text;
 	width: 100%;
-	padding: 0 $container-fluid;
 	min-height: $header-height-control;
+	.container,
+	.container-sm,
+	.container-fluid {
+		@include flex-space-between;
+	}
+	.left,
+	.right {
+		// width: 50%;
+	}
 	.left,
 	.center,
 	.right {
