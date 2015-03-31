@@ -24,9 +24,10 @@ body {
 
 // HERO UNIT
 .hero-unit {
-	position: relative;
-	height: $video-bg-height;
 	@include bg-img-control;
+	height: $video-bg-height;
+	position: relative;
+	overflow: hidden;
 	&.video-bg {
 		overflow: hidden;
 		height: $video-bg-height;
