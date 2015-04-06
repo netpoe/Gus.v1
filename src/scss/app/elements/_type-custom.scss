@@ -99,3 +99,23 @@ a.not-underline {
 .lh-sm {line-height: rem(19px);}
 .lh-md {line-height: rem(21px);}
 .lh-lg {line-height: rem(28px);}
+
+/*
+  Text shadow
+*/
+@mixin text-shadow {
+  text-shadow: 
+    rgba($gray-darker, 0.33) // Color
+    0 // Eje x
+    2px // Eje Y
+    1px; // Blur
+}
+// TEXT SHADOW
+.text-shadow {
+  @include text-shadow;
+  #{$text-elements-list},
+  #{$headings-list},
+  #{$headings-class-list} {
+    @include text-shadow;
+  }  
+}
