@@ -1,3 +1,7 @@
+/*
+	EBM:Ref
+	Flexbox
+*/
 // VERTICAL DISTRIBUTION SHORTHANDS
 @mixin flex-middle {
 	@include display(flex);
@@ -6,6 +10,11 @@
 }
 .flex-middle {
 	@include flex-middle;
+}
+.flex-middle-ch {
+	@include children-elements {
+		@include flex-middle;
+	}
 }
 @mixin flex-middle-center {
 	@include display(flex);
@@ -16,6 +25,11 @@
 .flex-middle-center {
 	@include flex-middle-center;
 }
+.flex-middle-center-ch {
+	@include children-elements {
+		@include flex-middle-center;
+	}
+}
 @mixin flex-middle-end {
 	@include display(flex);
 	@include flex-direction(column);
@@ -24,6 +38,11 @@
 }
 .flex-middle-end {
 	@include flex-middle-end;
+}
+.flex-middle-end-ch {
+	@include children-elements {
+		@include flex-middle-end;
+	}
 }
 
 // HORIZONTAL DISTRIBUTION SHORTHANDS
@@ -41,18 +60,36 @@
 .flex-row {
 	@include flex-row;
 }
+.flex-row-ch {
+	@include children-elements {
+		@include flex-row;
+	}
+}
+.flex-space-between {
+	@include flex-space-between;
+}
+.flex-space-between-ch {
+	@include children-elements {
+		@include flex-space-between;
+	}
+}
 @mixin space-between-break {
 	@include display(flex);
 	@include flex-direction(column);
 	// @include list-unstyled;	
 }
-.flex-space-between {
-	@include flex-space-between;
-}
 @for $i from 1 through length($media-control-list) {
 	@media #{nth($media-control-list, $i)} {
 		.flex-space-between-break-#{nth($breakpoints-sufix-list, $i)} {
 			@include space-between-break;
+			@include children-elements {
+				@include space-between-break;
+			}
+		}
+		.flex-space-between-break-#{nth($breakpoints-sufix-list, $i)}-ch {
+			@include children-elements {
+				@include space-between-break;
+			}
 		}
 	}
 }
