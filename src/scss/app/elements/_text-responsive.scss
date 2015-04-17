@@ -87,6 +87,14 @@ $text-elements-list:
   "ol",
   "li";
 
+@mixin text-elements {
+  #{$headings-list},
+  #{$headings-class-list},
+  #{$text-elements-list} {
+    @content;
+  }
+}
+
 // LEAD TEXT ELEMENTS
 #{$text-elements-list} {
   &.lead {

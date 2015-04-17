@@ -32,6 +32,9 @@
 	@include bg-img-control;
 	background-position-x: right;
 }
+@mixin bg-img-control-size-100 {
+	background-size: 100%;
+}
 .bg-img-block {
 	@include bg-img-control;
 	background-position: center center;
@@ -56,4 +59,7 @@
 }
 .bg-img-block-right {
 	@include bg-img-control-right;
+}
+.bg-img-control-size-100 {
+	@include bg-img-control-size-100;
 }

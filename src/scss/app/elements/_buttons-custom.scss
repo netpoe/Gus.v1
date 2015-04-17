@@ -159,7 +159,8 @@ input[type="submit"].btn,
 			i {
 				display: inline-block;
 				height: $button-icon-height-control;
-				@include flex-middle-center;
+				@include flex-column-center;
+				@include flex-align-center;
 			}
 			span {
 				float: left;
@@ -246,7 +247,8 @@ input[type="submit"].btn,
 			i {
 				display: inline-block;
 				height: $button-icon-height-control;
-				@include flex-middle-center;
+				@include flex-column-center;
+				@include flex-align-center;
 			}
 			span {
 				float: left;
@@ -333,7 +335,8 @@ input[type="submit"].btn,
 			i {
 				display: inline-block;
 				height: $button-icon-height-control;
-				@include flex-middle-center;
+				@include flex-column-center;
+				@include flex-align-center;
 			}
 			span {
 				float: left;
@@ -420,7 +423,8 @@ input[type="submit"].btn,
 			i {
 				display: inline-block;
 				height: $button-icon-height-control;
-				@include flex-middle-center;
+				@include flex-column-center;
+				@include flex-align-center;
 			}
 			span {
 				float: left;

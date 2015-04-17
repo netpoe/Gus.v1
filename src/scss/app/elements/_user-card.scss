@@ -1,11 +1,14 @@
-/* USER CARD */
+/* 
+	EBM:Ref
+	User cards
+*/
 .user-card {
-	position: relative;
-	@include clearfix;
 	@include normalize-text;
+	@include flex-row;
+	@include clearfix;
+	position: relative;
 	margin-bottom: $container-fluid / 2;
 	width: 100%;
-	@include flex-row;
 	.user-pic,
 	.user-info {
 		// float: left;
@@ -19,7 +22,7 @@
 		}
 	}
 	.user-info {
-		@include flex-middle;
+		@include flex-column-center;
 		min-height: $user-card-height * 2;
 		padding-left: $container-fluid;
 		@include children-elements {

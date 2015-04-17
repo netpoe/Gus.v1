@@ -10,7 +10,9 @@ header.header {
 	.container,
 	.container-sm,
 	.container-fluid {
-		@include flex-space-between;
+	}
+	.row {
+		@include flex-row-space-between;
 	}
 	.left,
 	.right {
@@ -20,7 +22,8 @@ header.header {
 	.center,
 	.right {
 		min-height: $header-height-control;
-		@include flex-middle;
+		@include flex-row-center;
+		@include flex-align-center;
 	}
 	.left {
 
@@ -29,7 +32,7 @@ header.header {
 		text-align: center;
 	}
 	.right {
-
+		text-align: right;
 	}
 }
 // Uncomment for fixed-header on scroll funcionality
