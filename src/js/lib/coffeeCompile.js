@@ -1,18 +1,34 @@
 (function() {
   'use-strict';
   $(document).ready(function() {
-    $('.disable-anchors a').click(function(e) {
+    var $contentDisplayWrapper, $contentItemsWrapper, $globalIdRef;
+    $contentDisplayWrapper = $('.content-items-display-wrapper');
+    $contentItemsWrapper = $('.content-items-wrapper');
+    $globalIdRef = '';
+    $('.content-item').click(function(e) {
+      var idRef;
       e.preventDefault();
+      $(this).addClass('active');
+      idRef = $(this).attr('href');
+      console.log($globalIdRef);
+      if ($contentDisplayWrapper.hasClass('display-content')) {
+        $contentDisplayWrapper.removeClass($globalIdRef);
+        $('.content-items-wrapper [href=#' + $globalIdRef + ']').removeClass('active');
+        $globalIdRef = idRef.slice(1);
+        $contentDisplayWrapper.addClass($globalIdRef);
+      } else {
+        $globalIdRef = idRef.slice(1);
+        $contentDisplayWrapper.addClass($globalIdRef);
+        $contentDisplayWrapper.addClass('display-content');
+        $contentItemsWrapper.addClass('displaying-content');
+      }
     });
-    $('[data-href]').click(function(e) {
-      var lastPath, locationArr, mainPath, pathObj;
-      locationArr = window.location.pathname.split('/');
-      lastPath = locationArr[locationArr.length - 1];
-      mainPath = locationArr[locationArr.length - 2];
-      pathObj = {};
-      pathObj[mainPath] = lastPath;
-      window.history.pushState(pathObj, '', lastPath);
-      document.location.replace($(this).data('href'));
+    $('.content-display-close').on('click', 'a', function(e) {
+      e.preventDefault();
+      $('.content-item').removeClass('active');
+      $contentDisplayWrapper.removeClass('display-content');
+      $contentItemsWrapper.removeClass('displaying-content');
+      $contentDisplayWrapper.removeClass($globalIdRef);
     });
   });
 

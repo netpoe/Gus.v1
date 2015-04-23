@@ -22,28 +22,217 @@ body {
 	position: relative;
 }
 
-// HERO UNIT
-.hero-unit {
-	@include bg-img-control;
-	height: $video-bg-height;
+$content-items-wrapper-width-control: 490px;
+.site-wrapper {
+	min-height: 100%;
+	min-height: 100vh;
+}
+
+.sidebar-fixed,
+.content-items-wrapper {
+	// float: left;
+	// display: block;
+	// @include flex-row;
+}
+
+.sidebar-fixed {
+	@include calc(width, "100% - #{$content-items-wrapper-width-control}");
+	@include position(fixed, 0 null 0 0);
+	z-index: 1000;
+	-webkit-backface-visibility: hidden; 
+	-webkit-transform: translateZ(0);
+	background-color: $gray-lighter;
+	border-right: 1px solid $gray-lighter;
+	height: 100vh;
+}
+.content-items-wrapper {
+	@include calc(margin-left, "100% - #{$content-items-wrapper-width-control}");
+	// padding-right: $container-fluid;
+	padding: ($header-height-control + 7) ($container-fluid / 2) 0 ($container-fluid / 2);
+	min-height: 100vh;
+}
+
+/*
+	Profile
+*/
+.profile {
+	text-align: center;
+	.profile-pic {
+		@include bg-img-control-center;
+		@include bg-img-control;
+		border: 3px solid white;
+		border-radius: 50%;
+		margin: 0 auto;
+		height: 180px;
+		width: 180px;
+	}
+	.profile-description {}
+}
+
+/*
+	Footer
+*/
+.footer {
+	@include position(absolute, null 0 0 0);
+	height: $header-height-control;
+	width: 100%;
+	.footer-head,
+	.footer-body {
+		.left {
+			width: 70%;
+		}
+		.right {
+			width: 30%;
+		}
+	}
+	.footer-head {
+		@include flex-row-space-between;
+		padding: 0 $container-fluid;
+		border-bottom: 1px solid darken($gray-lighter, 2%);
+		border-top: 1px solid darken($gray-lighter, 2%);
+		.left {}
+		.right {
+			text-align: right;
+		}
+	}
+	.footer-body {
+		@include flex-row-space-between;
+		padding: 0 $container-fluid;
+		.left,
+		.right {
+			@include flex-column-center;
+			height: $header-height-control - 19;
+		}
+		.left {
+			.tech-logos {
+				img {
+					max-width: 231px;
+					height: auto;
+				}
+			}
+		}
+		.right {
+			text-align: right;
+			.tech-logos {
+				img {
+					max-width: 112px;
+					height: auto;
+				}
+			}
+		}
+	}
+}
+
+
+
+/*
+	Content items
+*/
+$content-items-height-control: 350px;
+.content-items-wrapper {
+	&.displaying-content {
+		.content-item:not(.active) {
+			@include transition(all 0.5s ease-in-out);
+			opacity: 0.5;
+		}
+	}
+}
+.content-item {
+	@include transition(all 0.5s ease-in-out);
+	@include normalize-text;
+	height: $content-items-height-control;
+	border: 1px solid $gray-lighter;
+	margin-bottom: $container-fluid / 2;
+	border-radius: 2px;
 	position: relative;
 	overflow: hidden;
-	&.video-bg {
+	display: block;
+	color: $gray;
+	.content-item-pic {
 		overflow: hidden;
-		height: $video-bg-height;
-	}
-	.overlay,
-	.hero-unit-pic {
-		@include position(absolute, 0 0 0 0);
-		height: $video-bg-height;
-	}
-	.hero-unit-pic {
 		img {
 			width: 100%;
 			height: auto;
 		}
 	}
+	.content-item-meta {
+		@include position(absolute, null 0 0 0);
+		@include flex-row-space-between;
+		height: $header-height-control;
+		padding: 0 $container-fluid;
+		background-color: #fff;
+		z-index: 30;
+		width: 100%;
+		.left,
+		.right {
+			@include flex-column-center;
+			height: $header-height-control;
+		}
+		.left {}
+		.right {
+			@include flex-align-end;
+		}
+	}
+	.content-item-title {
+		@include light;
+	}
+	.content-item-technologies {
+
+	}
 }
+
+/*
+	Content items display
+*/
+.content-items-display-wrapper {
+	@include transition(all 0.2s ease-in-out 1.8s);
+	@include position(absolute, 0 0 null 0);
+	@include transform(translateY(-100%));
+	@include flex-row-center;
+	z-index: 990;
+	border-right: 1px solid $gray-lighter;
+	overflow: hidden;
+	.content-items-display {
+		@include transition(width 0.5s ease-in-out 1.3s, height 0.5s ease-in-out 0.5s);
+		position: relative;
+		height: $header-height-control / 10;
+		width: $header-height-control;		
+		background-color: #fff;
+		overflow-y: scroll;
+		&::-webkit-scrollbar { 
+	    display: none; 
+		}
+	}
+	&.display-content {
+		@include transition(all 0.2s ease-in-out);
+		@include transform(translateY(0));
+		.content-items-display {
+			@include transition(width 0.5s ease-in-out 0.5s, height 0.5s ease-in-out 1.3s);
+			height: 100vh;
+			width: 100%;
+		}
+	}
+	.content-display-close {
+		padding: $container-fluid;
+		text-align: right;
+	}
+	.content-item-content {
+		position: absolute;
+		width: 100%;
+		opacity: 0;
+	}
+}
+
+.content-items-display-wrapper {
+	@for $i from 1 through 20 {
+		&.article-#{$i} {
+			#article-#{$i} {
+				opacity: 1;
+			}
+		}
+	}
+}
+
 
 // CLICKABLE DIV
 [data-href]{

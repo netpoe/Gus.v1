@@ -15,11 +15,11 @@ $gray:                   #7D7E7F !default; // #555
 $gray-light:             lighten($gray-base, 46.7%) !default; // #777
 $gray-lighter:           #F0F0F0 !default; // #eee
 
-$brand-primary:         darken(#428bca, 6.5%) !default;
-$brand-success:         #5cb85c !default;
-$brand-info:            #5bc0de !default;
-$brand-warning:         #f0ad4e !default;
-$brand-danger:          #d9534f !default;
+$brand-primary:         #63AB56 !default;
+$brand-success:         #63AB56 !default;
+$brand-info:            #0066FF !default;
+$brand-warning:         #FCB606 !default;
+$brand-danger:          #BC4740 !default;
 
 $blue-base: #3A4959;
 
@@ -156,7 +156,7 @@ $link-hover-decoration: underline !default;
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-sans-serif:  "gotham-book-webfont", Helvetica, Arial, sans-serif !default;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;

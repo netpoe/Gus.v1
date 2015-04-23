@@ -35,6 +35,34 @@ header.header {
 		text-align: right;
 	}
 }
+header.header-fixed {
+	@include calc(padding-left, "100% - #{$content-items-wrapper-width-control}");
+	@include position(fixed, 0 0 null 0);
+	z-index: 900;
+	-webkit-backface-visibility: hidden; 
+	-webkit-transform: translateZ(0);
+	background-color: #fff;
+	width: 100%;
+	border-bottom: 1px solid $gray-lighter;
+	height: $header-height-control;
+	.row {
+		.left,
+		.right {
+			@include flex-column-center;
+			height: $header-height-control;
+		}
+	}
+	.right {
+		text-align: right;
+	}
+}
+.logo {
+	display: block;
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
 // Uncomment for fixed-header on scroll funcionality
 // header.header-fixed {
 // 	@extend header.header;
